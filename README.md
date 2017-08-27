@@ -28,6 +28,8 @@ You can find more pictures in the examples/ directory.
 - Add your fonts (TrueTypeFont (.ttf) preferred) to your fonts directory, which is specified in the constructor of FontLoader.
 - Add your backgrounds (it works with JPGs) to the backgrounds directory, which is specified in the constructor of CaptchaBuilder.
 
+It should be possible to use this library using Java (becuase Kotlin compiles to Java-Bytecode), and maybe even other JVM languages like Groovy, Scala, and so on...
+
 ##### Create three numeric captcha with 3 - 45 random lines, 
 
 ```kotlin
