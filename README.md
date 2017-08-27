@@ -15,8 +15,13 @@ And this was what I came up with
 ####Backgrounds:
 The backgrounds from these pictures come from [JCaptcha][jcaptcha], a library which unfortunately does not seem to be maintained currently.
 ###Pictures:
-You can find more pictures in the examples/ directory. 
+You can find more pictures in the examples/ directory.  
 
+![1][1]
+![13][13]
+![15][15]
+![16][16]
+![18][18] 
 
 ## Usage
 
@@ -83,3 +88,9 @@ I didn't spent too much time writing this, it is fairly easy, but the code's may
 [zreaks]: http://www.dafont.com/zreaks-nfi.font
 
 [jcaptcha]: https://sourceforge.net/projects/jcaptcha/
+
+[1]: https://raw.githubusercontent.com/Gatgeagent/G-Captcha/master/examples/1.png
+[13]: https://raw.githubusercontent.com/Gatgeagent/G-Captcha/master/examples/13.png
+[15]: https://raw.githubusercontent.com/Gatgeagent/G-Captcha/master/examples/15.png
+[16]: https://raw.githubusercontent.com/Gatgeagent/G-Captcha/master/examples/16.png
+[18]: https://raw.githubusercontent.com/Gatgeagent/G-Captcha/master/examples/18.png
