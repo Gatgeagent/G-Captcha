@@ -75,8 +75,7 @@ class CaptchaBuilder(private val characterSet: String, private val minLines: Int
         val lineCount = pair.second
         graphics.background = Color.BLACK
         val output = ByteArrayOutputStream()
-        //ImageIO.write(graphicsImage, "PNG", output)
-        ImageIO.write(graphicsImage, "PNG", File("${Math.abs(random.nextInt())}.png"))
+        ImageIO.write(graphicsImage, "PNG", output)
 
         return Captcha(output.toByteArray(), string, lineCount, graphics.font.fontName)
     }
