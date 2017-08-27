@@ -3,7 +3,7 @@ Simple Captcha library written in Kotlin
 
 G-Captcha is a library to generate images which are hard to read for robots/OCR readers, it consists just out of five classes.  
 I needed a library which generates captchas I could use in the Spark framework, but everything I found were servlets.  
-And this was what I came up with
+And this was what I came up with:
 
 ## Examples
 #### For these examples, I used following fonts:
