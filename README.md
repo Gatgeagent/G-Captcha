@@ -78,7 +78,7 @@ if (captcha.text == userResponse) {
 ##
 
 Some variables are hardcoded to CaptchaBuilder.kt, like the width of the picture.  
-Please change it to your needs. Unfortunately I dind't had luck with much other settings than the current default one. 
+Please change it to your needs. Unfortunately, I didn't had much luck with other settings than the current default ones. 
 I didn't spent too much time writing this, it is fairly easy, but the code's maybe not the prettiest. 
 
 [huckle-buff]: http://www.downloadfreefonts.com/fonts/512/huckle_buff.php
