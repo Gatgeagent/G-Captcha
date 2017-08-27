@@ -6,7 +6,7 @@ I needed a library which generates captchas I could use in the Spark framework, 
 And this was what I came up with
 
 ## Examples
-####For these examples, I used following fonts:
+#### For these examples, I used following fonts:
 - Buff (Huckle Buff), [download][huckle-buff]
 - Gorillaz2, [download][gorillaz2]
 - MomsTypeWriter, [download][mumstypewriter]
