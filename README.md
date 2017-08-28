@@ -9,7 +9,7 @@ And this was what I came up with:
 #### For these examples, I used following fonts:
 - Buff (Huckle Buff), [download][huckle-buff]
 - Gorillaz2, [download][gorillaz2]
-- MomsTypeWriter, [download][mumstypewriter]
+- MomsTypeWriter, [download][mumstypewriter] (does not include the numbers "0" and "1")
 - NoRefunds, [download][norefunds]
 - Zreaks NFI, [download][zreaks]
 #### Backgrounds:
