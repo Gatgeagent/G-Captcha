@@ -51,7 +51,7 @@ class CaptchaBuilder(private val characterSet: String, private val length: Int, 
     fun generateCaptcha(): Captcha {
         val random = Random()
 
-        val string = generateRandomString(random, characterSet, length)
+        val captchaTest = generateRandomString(random, characterSet, length)
 
         val image = ImageIO.read(File(chooseRandomBackground(backgroundsDir))).getScaledInstance(1000, 300, Image.SCALE_FAST)
         val graphicsImage = BufferedImage(1000, 300, BufferedImage.TYPE_INT_ARGB)
@@ -59,14 +59,19 @@ class CaptchaBuilder(private val characterSet: String, private val length: Int, 
 
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
 
-        graphics.font = Font(chooseRandomFont(fonts), Font.PLAIN, random.nextInt(40) + 56)
-
         graphics.drawImage(image, 0, 0, null)
 
         graphics.color = Color.getHSBColor(random.nextFloat(), random.nextFloat(), random.nextFloat())
 
+        var font = Font(chooseRandomFont(fonts), Font.PLAIN, random.nextInt(40) + 56)
+        while (font.canDisplayUpTo(captchaTest) != -1) {
+            font = Font(chooseRandomFont(fonts), Font.PLAIN, random.nextInt(40) + 56)
+        }
+        graphics.font = font
 
-        graphics.drawString(string, random.nextInt(400) + 30, random.nextInt(140) + 60)
+        graphics.drawString(captchaTest, random.nextInt(400) + 30, random.nextInt(140) + 60)
+
+
         graphics.color = Color.getHSBColor(random.nextFloat(), random.nextFloat(), random.nextFloat())
 
         graphics.fillOval(random.nextInt(20) + 10, random.nextInt(20) + 10, random.nextInt(20) + 20, random.nextInt(20) + 20)
@@ -77,6 +82,6 @@ class CaptchaBuilder(private val characterSet: String, private val length: Int, 
         val output = ByteArrayOutputStream()
         ImageIO.write(graphicsImage, "PNG", output)
 
-        return Captcha(output.toByteArray(), string, lineCount, graphics.font.fontName)
+        return Captcha(output.toByteArray(), captchaTest, lineCount, graphics.font.fontName)
     }
 }
