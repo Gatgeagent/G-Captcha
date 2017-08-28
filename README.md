@@ -97,7 +97,7 @@ I didn't spent too much time writing this, it is fairly easy, but the code's may
 [huckle-buff]: http://www.downloadfreefonts.com/fonts/512/huckle_buff.php
 [gorillaz2]: https://fonts2u.com/gorillaz-2.font
 [mumstypewriter]: http://www.dafont.com/moms-typewriter.font
-[norefunds]: http://www.dafont.com/moms-typewriter.font
+[norefunds]: https://ufonts.com/fonts/norefunds.html
 [zreaks]: http://www.dafont.com/zreaks-nfi.font
 
 [jcaptcha]: https://sourceforge.net/projects/jcaptcha/
