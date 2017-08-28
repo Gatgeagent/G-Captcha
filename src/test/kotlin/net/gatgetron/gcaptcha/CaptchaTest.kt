@@ -41,23 +41,23 @@ class CaptchaTest(testName: String) : TestCase(testName) {
 
         println("Generating a lot of normal captchas...")
         for (i in 1..99) {
-            val captcha = CaptchaBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", 3, 45, "backgrounds", fontLoader.fontnames).generateCaptcha()
+            val captcha = CaptchaBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", 6, 3, 45, "backgrounds", fontLoader.fontnames).generateCaptcha()
             Assert.assertNotNull(captcha)
         }
 
         println("Generating a number captcha with a lot of lines...")
-        Assert.assertNotNull(CaptchaBuilder("0123456789", 10000, 10000, "backgrounds", fontLoader.fontnames).generateCaptcha())
+        Assert.assertNotNull(CaptchaBuilder("0123456789", 6, 10000, 10000, "backgrounds", fontLoader.fontnames).generateCaptcha())
 
         println("Generating a captcha with no text or lines...")
         try {
-            Assert.assertNotNull(CaptchaBuilder("", 0, 0, "backgrounds", fontLoader.fontnames).generateCaptcha())
+            Assert.assertNotNull(CaptchaBuilder("", 6, 0, 0, "backgrounds", fontLoader.fontnames).generateCaptcha())
             Assert.fail("Created a captcha with no text or lines")
         } catch (e: IllegalArgumentException) {
 
         }
 
         println("Checking captcha values...")
-        val captcha = CaptchaBuilder("Q", 3, 3, "backgrounds", fontLoader.fontnames).generateCaptcha()
+        val captcha = CaptchaBuilder("Q", 6, 3, 3, "backgrounds", fontLoader.fontnames).generateCaptcha()
         Assert.assertTrue(GraphicsEnvironment.getLocalGraphicsEnvironment().availableFontFamilyNames.contains(captcha.fontName))
 
         Assert.assertEquals(3, captcha.lineCount)

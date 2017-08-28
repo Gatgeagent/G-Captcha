@@ -46,12 +46,12 @@ import javax.imageio.ImageIO
  * @ctime 11:45
  * @cproject G-Captcha
  */
-class CaptchaBuilder(private val characterSet: String, private val minLines: Int, private val maxLines: Int, private val backgroundsDir: String, private val fonts: ArrayList<String>) {
+class CaptchaBuilder(private val characterSet: String, private val length: Int, private val minLines: Int, private val maxLines: Int, private val backgroundsDir: String, private val fonts: ArrayList<String>) {
 
     fun generateCaptcha(): Captcha {
         val random = Random()
 
-        val string = generateRandomString(random, characterSet, 6)
+        val string = generateRandomString(random, characterSet, length)
 
         val image = ImageIO.read(File(chooseRandomBackground(backgroundsDir))).getScaledInstance(1000, 300, Image.SCALE_FAST)
         val graphicsImage = BufferedImage(1000, 300, BufferedImage.TYPE_INT_ARGB)

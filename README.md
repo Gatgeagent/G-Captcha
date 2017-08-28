@@ -12,9 +12,9 @@ And this was what I came up with:
 - MomsTypeWriter, [download][mumstypewriter]
 - NoRefunds, [download][norefunds]
 - Zreaks NFI, [download][zreaks]
-####Backgrounds:
+#### Backgrounds:
 The backgrounds from these pictures come from [JCaptcha][jcaptcha], a library which unfortunately does not seem to be maintained currently.
-###Pictures:
+### Pictures:
 You can find more pictures in the examples/ directory.  
 
 ![1][1]
@@ -38,12 +38,13 @@ val fontLoader = FontLoader("fonts") // Registers each font in the "File("fonts"
 /*
  * class CaptchaBuilder(
  *     characterSet: String, // The character set to choose characters from, eg "ABCDEFG", "123456", "ABCabc123"
+ *     length: Int, // The length of the text displayed on the captcha, "6" works very well
  *     minLines: Int, // How many random lines to draw at least
  *     maxLines: Int, // How many random lines to draw maximally
  *     fonts: ArrayList<String> // From which fonts to choose from
  *     )
  */
-val builder = CaptchaBuilder("0123456789", 3, 45, "backgrounds", fontLoader.fontnames)
+val builder = CaptchaBuilder("0123456789", 6,  3, 45, "backgrounds", fontLoader.fontnames)
 
 val captcha1 = builder.generateCaptcha()
 val captcha2 = builder.generateCaptcha()
@@ -77,6 +78,16 @@ if (captcha.text == userResponse) {
 }
 ```
 
+##### Generate a captcha using the Spark Framework:
+```kotlin
+val fontLoader = FontLoader("fonts")
+val builder = CaptchaBuilder("AA", 3, 20, "backgrounds", fontLoader.fontnames)
+
+get("/captcha") { request, response ->
+    response.type("image/png")
+    return@get builder.generateCaptcha().pngImage
+}
+```
 ##
 
 Some variables are hardcoded to CaptchaBuilder.kt, like the width of the picture.  
