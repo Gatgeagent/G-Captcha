@@ -37,20 +37,20 @@ class CaptchaTest(testName: String) : TestCase(testName) {
 
         println("Loading fonts...")
         val fontLoader = FontLoader("fonts")
-        Assert.assertNotNull(fontLoader)
+        Assert.assertNotNull("FontLoader is null", fontLoader)
 
         println("Generating a lot of normal captchas...")
         for (i in 1..99) {
             val captcha = CaptchaBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", 6, 3, 45, "backgrounds", fontLoader.fontnames).generateCaptcha()
-            Assert.assertNotNull(captcha)
+            Assert.assertNotNull("Captcha is null", captcha)
         }
 
         println("Generating a number captcha with a lot of lines...")
-        Assert.assertNotNull(CaptchaBuilder("0123456789", 6, 10000, 10000, "backgrounds", fontLoader.fontnames).generateCaptcha())
+        Assert.assertNotNull("CaptchaLoader is null", CaptchaBuilder("0123456789", 6, 10000, 10000, "backgrounds", fontLoader.fontnames).generateCaptcha())
 
         println("Generating a captcha with no text or lines...")
         try {
-            Assert.assertNotNull(CaptchaBuilder("", 6, 0, 0, "backgrounds", fontLoader.fontnames).generateCaptcha())
+            Assert.assertNotNull("CaptchaBuilder is null", CaptchaBuilder("", 6, 0, 0, "backgrounds", fontLoader.fontnames).generateCaptcha())
             Assert.fail("Created a captcha with no text or lines")
         } catch (e: IllegalArgumentException) {
 
@@ -58,13 +58,13 @@ class CaptchaTest(testName: String) : TestCase(testName) {
 
         println("Checking captcha values...")
         val captcha = CaptchaBuilder("Q", 6, 3, 3, "backgrounds", fontLoader.fontnames).generateCaptcha()
-        Assert.assertTrue(GraphicsEnvironment.getLocalGraphicsEnvironment().availableFontFamilyNames.contains(captcha.fontName))
+        Assert.assertTrue("Font not registered in GraphicsEnvironment!", GraphicsEnvironment.getLocalGraphicsEnvironment().availableFontFamilyNames.contains(captcha.fontName))
 
-        Assert.assertEquals(3, captcha.lineCount)
+        Assert.assertEquals("Wrong line count on captcha!", 3, captcha.lineCount)
 
-        Assert.assertNotNull(captcha.pngImage)
+        Assert.assertNotNull("No image on captcha!", captcha.pngImage)
 
-        Assert.assertEquals("QQQQQQ", captcha.text)
+        Assert.assertEquals("Wrong captcha text!", "QQQQQQ", captcha.text)
 
 
     }
